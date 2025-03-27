@@ -26,10 +26,9 @@
   }
   
   
-  // Left Side: User Info (Styled Card)
-.user-info {
+  .user-info {
     flex: 1;
-    background: linear-gradient(135deg, #34495e, #2c3e50); // Matches theme
+    background: rgba(0, 0, 0, 0.3);
     padding: 20px;
     border-radius: 10px;
     color: #fff;
@@ -44,23 +43,22 @@
     }
   
     h3 {
-      color: #f39c12; // Matches event list heading color
+      color: #f39c12;
       margin-bottom: 10px;
     }
   
     p {
       font-size: 16px;
-      background: rgba(255, 255, 255, 0.15);
-      padding: 12px;
-      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 10px;
+      border-radius: 5px;
       display: inline-block;
-      color: #f1f1f1;
     }
   }
-  
 
   .event-section {
     flex: 2;
+    text-align: left;
   }
   
   // Booked Events Grid (Flexbox Layout)

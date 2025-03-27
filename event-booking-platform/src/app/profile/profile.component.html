@@ -1,22 +1,22 @@
 <div class="container">
-    <h2>User Profile</h2>
-  
-    <div class="user-info">
-      <p><strong>Email:</strong> {{ user.email }}</p>
-    </div>
-  
-    <h3>Booked Events</h3>
-    <div class="event-list" *ngIf="bookings.length > 0; else noBookings">
-      <div *ngFor="let booking of bookings" class="event-card">
-        <h3>{{ booking.title }}</h3>
-        <p><strong>Location:</strong> {{ booking.location }}</p>
-        <p><strong>Date:</strong> {{ booking.date }}</p>
-        <p><strong>Price:</strong> ${{ booking.price }}</p>
-      </div>
-    </div>
-  
-    <ng-template #noBookings>
-      <p class="no-bookings">No bookings found.</p>
-    </ng-template>
+  <h2>User Profile</h2>
+
+  <div class="user-info">
+    <p><strong>Email:</strong> {{ user.email }}</p>
   </div>
-  
+
+  <h3>Booked Events</h3>
+  <div class="event-list" *ngIf="bookings.length > 0; else noBookings">
+    <div *ngFor="let booking of bookings" class="event-card">
+      <h3>{{ booking.title }}</h3>
+      <p><strong>Location:</strong> {{ booking.location }}</p>
+      <p><strong>Date:</strong> {{ booking.date }}</p>
+      <p><strong>Price:</strong> ${{ booking.price }}</p>
+      <button class="remove-btn" (click)="removeBooking(booking.id)">Remove</button>
+    </div>
+  </div>
+
+  <ng-template #noBookings>
+    <p class="no-bookings">No bookings found.</p>
+  </ng-template>
+</div>

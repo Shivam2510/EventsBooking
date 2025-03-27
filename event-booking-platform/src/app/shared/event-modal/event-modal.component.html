@@ -1,0 +1,10 @@
+<p-dialog [(visible)]="visible" [modal]="true" header="Event Details" [dismissableMask]="true" (onHide)="onClose()">
+    <div *ngIf="event">
+      <h2>{{ event.title }}</h2>
+      <p>{{ event.description }}</p>
+      <p><strong>Location:</strong> {{ event.location }}</p>
+      <p><strong>Date:</strong> {{ event.date }}</p>
+      <p><strong>Price:</strong> ${{ event.price }}</p>
+    </div>
+  </p-dialog>
+  

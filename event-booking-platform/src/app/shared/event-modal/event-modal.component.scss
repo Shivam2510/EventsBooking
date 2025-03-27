@@ -1,0 +1,83 @@
+// Modal Container
+:host ::ng-deep .p-dialog {
+    width: 50vw !important;  // Set the modal width to 50% of the viewport
+  max-width: 600px;        // Limit the maximum width for better responsiveness
+  min-width: 400px;        // Prevent it from becoming too small
+    background: rgba(255, 255, 255, 0.15); // Slightly transparent background
+    backdrop-filter: blur(10px); // Smooth glassmorphism effect
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+  
+    .p-dialog-header {
+      background: linear-gradient(135deg, #2c3e50, #34495e); // Dark theme gradient
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 16px;
+      border-radius: 12px 12px 0 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  
+      .p-dialog-title {
+        flex-grow: 1;
+        text-align: center;
+      }
+  
+      .p-dialog-header-close {
+        color: white;
+        font-size: 18px;
+        transition: transform 0.2s ease-in-out;
+  
+        &:hover {
+          transform: scale(1.1);
+          color: #f39c12;
+        }
+      }
+    }
+  
+    .p-dialog-content {
+      padding: 20px;
+      font-size: 16px;
+      color: #333;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.2);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    }
+  
+    .p-dialog-footer {
+      padding: 15px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      background: rgba(0, 0, 0, 0.1);
+      border-radius: 0 0 12px 12px;
+    }
+  
+    // Buttons inside the modal
+    .p-button {
+      background: linear-gradient(135deg, #f39c12, #e67e22);
+      border: none;
+      color: white;
+      font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 8px;
+      transition: all 0.3s ease-in-out;
+  
+      &:hover {
+        background: linear-gradient(135deg, #e67e22, #d35400);
+        transform: scale(1.05);
+      }
+    }
+  }
+  
+  // Mobile View Optimizations
+  @media (max-width: 768px) {
+    :host ::ng-deep .p-dialog {
+      width: 90% !important;
+      max-width: 400px;
+    }
+  }
+  

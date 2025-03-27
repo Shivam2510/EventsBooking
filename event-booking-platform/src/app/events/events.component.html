@@ -1,0 +1,59 @@
+<div class="container">
+    <h2>Events</h2>
+  
+    <!-- Add Event Button -->
+    <button class="add-btn" (click)="toggleForm()">
+      {{ showForm() ? 'Cancel' : 'Add Event' }}
+    </button>
+  
+    <!-- Event Form -->
+    <div *ngIf="showForm()" class="event-form">
+      <h3>Add New Event</h3>
+      <form [formGroup]="eventForm" (ngSubmit)="addEvent()">
+        <div class="form-group">
+          <label>Event Name:</label>
+          <input type="text" formControlName="title" placeholder="Enter event name" />
+        </div>
+  
+        <div class="form-group">
+          <label>Location:</label>
+          <input type="text" formControlName="location" placeholder="Enter location" />
+        </div>
+  
+        <div class="form-group">
+          <label>Date:</label>
+          <input type="date" formControlName="date" />
+        </div>
+  
+        <div class="form-group">
+          <label>Price:</label>
+          <input type="number" formControlName="price" placeholder="Enter price" />
+        </div>
+  
+        <div class="form-group">
+          <label>Event Description:</label>
+          <input type="text" formControlName="description" placeholder="Enter event description" />
+        </div>
+  
+        <button type="submit" [disabled]="eventForm.invalid">Submit</button>
+      </form>
+    </div>
+  
+    <!-- Event List -->
+    <div class="event-grid">
+      <div *ngFor="let event of paginatedEvents()" class="event-card">
+        <h3>{{ event.title }}</h3>
+        <p><strong>Location:</strong> {{ event.location }}</p>
+        <p><strong>Date:</strong> {{ event.date }}</p>
+        <p><strong>Price:</strong> ${{ event.price }}</p>
+        <p><strong>Description:</strong> {{ event.description }}</p>
+        <button (click)="deleteEvent(event.id)">Delete</button>
+      </div>
+    </div>
+  
+    <!-- PrimeNG Paginator -->
+    <p-paginator [rows]="eventsPerPage()" [totalRecords]="events().length" [rowsPerPageOptions]="[6, 9, 12]"
+                 (onPageChange)="onPageChange($event)">
+    </p-paginator>
+  </div>
+  

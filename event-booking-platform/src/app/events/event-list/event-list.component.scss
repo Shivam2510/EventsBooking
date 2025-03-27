@@ -1,0 +1,218 @@
+// Mixins for Reusability
+@mixin card-style($shadow: rgba(0, 0, 0, 0.15), $hover-shadow: rgba(0, 0, 0, 0.25)) {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 5px 15px $shadow;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 7px 20px $hover-shadow;
+    }
+  }
+  
+  @mixin button-style($bg1, $bg2) {
+    background: linear-gradient(135deg, $bg1, $bg2);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  
+    &:hover {
+      background: linear-gradient(135deg, darken($bg1, 10%), darken($bg2, 10%));
+      transform: scale(1.05);
+    }
+  }
+  
+  @mixin input-style {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    background: #fff;
+    transition: border 0.3s ease-in-out;
+  
+    &:focus {
+      border-color: #f39c12;
+      outline: none;
+      box-shadow: 0 0 5px rgba(243, 156, 18, 0.4);
+    }
+  }
+  
+  // Outer Container (Better Card Design)
+  .container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 25px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    }
+  
+    h2 {
+      font-size: 28px;
+      color: #f39c12;
+      margin-bottom: 20px;
+    }
+  }
+  
+  // Search and Filter Section
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+    margin-bottom: 20px;
+  
+    input, select {
+      @include input-style;
+    }
+  
+    // Price Range Slider Styling
+    input[type="range"] {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 3px;
+      border-radius: 50px;
+      background: linear-gradient(90deg, #f39c12, #e67e22);
+      cursor: pointer;
+  
+      &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 12px;
+        height: 12px;
+        background: #f39c12;
+        border-radius: 50%;
+        border: 2px solid #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        transition: transform 0.2s ease-in-out;
+  
+        &:hover {
+          transform: scale(1.2);
+        }
+      }
+    }
+  }
+  
+  // Event Grid
+  .event-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  // Event Cards (Modern Design)
+  .event-card {
+    flex: 1 1 calc(33.33% - 20px);
+    max-width: calc(33.33% - 20px);
+    box-sizing: border-box;
+    text-align: center;
+    @include card-style;
+  
+    h3 {
+      font-size: 18px;
+      font-weight: bold;
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+  
+    p {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 10px;
+    }
+  
+    .btn {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+    }
+  
+    button {
+      @include button-style(#f39c12, #e67e22);
+    }
+  }
+  
+  // PrimeNG Paginator Styling
+  ::ng-deep p-paginator {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  
+    .p-paginator {
+      background: transparent !important;
+      border: none !important;
+    }
+  
+    .p-paginator-pages {
+      display: flex;
+      gap: 8px;
+  
+      .p-paginator-page {
+        @include button-style(#f39c12, #e67e22);
+        padding: 8px 14px;
+  
+        &.p-highlight {
+          background: #d35400;
+          font-weight: bold;
+        }
+      }
+    }
+  
+    .p-paginator-first, 
+    .p-paginator-last, 
+    .p-paginator-rpp-dropdown {
+      display: none;
+    }
+  
+    .p-paginator-prev, .p-paginator-next {
+      background: #2c3e50;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      margin-inline: 5px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+  
+      &:hover {
+        background: #1a252f;
+      }
+  
+      &.p-disabled {
+        background: gray;
+        cursor: not-allowed;
+      }
+    }
+  }
+  
+  // Mobile: 1 Card Per Row & Stacked Filters
+  @media (max-width: 768px) {
+    .event-card {
+      flex: 1 1 100%;
+      max-width: 100%;
+    }
+  
+    .filters {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  

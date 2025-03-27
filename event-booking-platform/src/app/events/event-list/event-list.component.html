@@ -1,0 +1,46 @@
+<div class="container">
+    <h2>Available Events</h2>
+
+    <!-- Search and Filter Section -->
+    <form [formGroup]="filterForm" class="filters">
+        <input type="text" formControlName="searchQuery" placeholder="Search by title or location" />
+        <input type="date" formControlName="selectedDate" />
+        <select formControlName="selectedLocation">
+            <option value="">All Locations</option>
+            <option *ngFor="let event of events()" [value]="event.location">{{ event.location }}</option>
+        </select>
+
+        <div class="slider">
+            <label>Price Range: ${{ filterForm.get('priceRange')?.value }}</label>
+            <input type="range" min="0" max="200" formControlName="priceRange" />
+        </div>
+
+        <select formControlName="sortBy">
+            <option value="">Sort By</option>
+            <option value="date">Date</option>
+            <option value="price">Price</option>
+            <option value="popularity">Popularity</option>
+        </select>
+    </form>
+
+    <!-- Event Grid -->
+    <div class="event-grid">
+        <div *ngFor="let event of paginatedEvents();" class="event-card">
+            <h3>{{ event.title }}</h3>
+            <p><strong>Location:</strong> {{ event.location }}</p>
+            <p><strong>Date:</strong> {{ event.date }}</p>
+            <p><strong>Price:</strong> ${{ event.price }}</p>
+            <div class="btn">
+                <button (click)="bookEvent(event)">Book Now</button>
+                <button class="details-btn" (click)="viewDescription(event)">Details</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PrimeNG Paginator -->
+    <p-paginator [rows]="eventsPerPage()" [totalRecords]="totalRecords()" [rowsPerPageOptions]="[6, 9, 12]" (onPageChange)="onPageChange($event)">
+    </p-paginator>
+
+    <!-- Use Reusable Modal Component -->
+    <app-event-modal [event]="selectedEvent()" [visible]="showModal()" (close)="showModal.set(false)"></app-event-modal>
+</div>

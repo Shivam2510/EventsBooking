@@ -1,0 +1,12 @@
+<header>
+    <nav>
+      <div class="nav-left">
+        <a routerLink="/profile" routerLinkActive="active">Profile</a>
+        <a routerLink="/event-list" routerLinkActive="active">Events</a>
+      </div>
+      <div class="nav-right"> <!-- ✅ Now updates reactively -->
+        <button (click)="logout()">Logout</button>
+      </div>
+    </nav>
+  </header>
+  

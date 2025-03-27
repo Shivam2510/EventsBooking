@@ -1,0 +1,100 @@
+{
+    "users": [
+      { "id": 1, "email": "admin@test.com", "password": "admin", "role": "admin" }
+    ],
+    "events": [
+        {
+          "id": 1,
+          "title": "Music Concert",
+          "location": "NYC",
+          "date": "2025-04-10",
+          "price": 50,
+          "availableSeats": 100,
+          "description": "An electrifying live music concert featuring top artists."
+        },
+        {
+          "id": 2,
+          "title": "Tech Conference",
+          "location": "SF",
+          "date": "2025-05-20",
+          "price": 100,
+          "availableSeats": 200,
+          "description": "A gathering of tech enthusiasts, developers, and industry leaders."
+        },
+        {
+          "id": 3,
+          "title": "Food Festival",
+          "location": "LA",
+          "date": "2025-06-15",
+          "price": 30,
+          "availableSeats": 150,
+          "description": "A celebration of diverse cuisines from around the world."
+        },
+        {
+          "id": 4,
+          "title": "Art Exhibition",
+          "location": "Chicago",
+          "date": "2025-07-05",
+          "price": 20,
+          "availableSeats": 80,
+          "description": "Showcasing contemporary art pieces from renowned artists."
+        },
+        {
+          "id": 5,
+          "title": "Startup Meetup",
+          "location": "Boston",
+          "date": "2025-08-10",
+          "price": 40,
+          "availableSeats": 120,
+          "description": "A networking event for entrepreneurs and investors."
+        },
+        {
+          "id": 6,
+          "title": "Book Fair",
+          "location": "Seattle",
+          "date": "2025-09-18",
+          "price": 15,
+          "availableSeats": 90,
+          "description": "A paradise for book lovers with author signings and workshops."
+        },
+        {
+          "id": 7,
+          "title": "Comedy Show",
+          "location": "Miami",
+          "date": "2025-10-22",
+          "price": 45,
+          "availableSeats": 110,
+          "description": "A night of laughter with top stand-up comedians."
+        },
+        {
+          "id": 8,
+          "title": "Fitness Bootcamp",
+          "location": "Denver",
+          "date": "2025-11-05",
+          "price": 60,
+          "availableSeats": 75,
+          "description": "An intense fitness session with expert trainers."
+        },
+        {
+          "id": 9,
+          "title": "Film Screening",
+          "location": "Austin",
+          "date": "2025-12-12",
+          "price": 35,
+          "availableSeats": 95,
+          "description": "Exclusive premiere of an indie film followed by a Q&A."
+        },
+        {
+          "id": 10,
+          "title": "Science Expo",
+          "location": "San Diego",
+          "date": "2026-01-20",
+          "price": 25,
+          "availableSeats": 130,
+          "description": "Showcasing innovations and scientific breakthroughs."
+        }
+      ]
+      ,
+    "bookings": []
+  }
+  

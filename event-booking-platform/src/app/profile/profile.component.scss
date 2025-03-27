@@ -1,0 +1,139 @@
+// Main Container (Outer Card)
+.container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 30px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease-in-out;
+  
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+  }
+  
+  // Profile Wrapper (Side-by-Side Layout)
+  .profile-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  
+  
+  // Left Side: User Info (Styled Card)
+.user-info {
+    flex: 1;
+    background: linear-gradient(135deg, #34495e, #2c3e50); // Matches theme
+    padding: 20px;
+    border-radius: 10px;
+    color: #fff;
+    text-align: left;
+    min-width: 30%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease-in-out;
+  
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+  
+    h3 {
+      color: #f39c12; // Matches event list heading color
+      margin-bottom: 10px;
+    }
+  
+    p {
+      font-size: 16px;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 12px;
+      border-radius: 8px;
+      display: inline-block;
+      color: #f1f1f1;
+    }
+  }
+  
+
+  .event-section {
+    flex: 2;
+  }
+  
+  // Booked Events Grid (Flexbox Layout)
+  .event-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+  }
+  
+  // Booked Event Cards (Styled Like Event List)
+  .event-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    flex: 1 1 calc(45% - 20px);
+    max-width: calc(45% - 20px);
+    box-sizing: border-box;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+  
+    h3 {
+      font-size: 18px;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+  
+    p {
+      font-size: 14px;
+      color: #555;
+    }
+  
+    // Remove Button (Styled Like "Book Now" Button)
+    .remove-btn {
+      background: linear-gradient(135deg, #e74c3c, #c0392b);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+  
+      &:hover {
+        background: linear-gradient(135deg, #c0392b, #a93226);
+        transform: scale(1.05);
+      }
+    }
+  }
+  
+  // No Bookings Message
+  .no-bookings {
+    font-size: 18px;
+    color: #ccc;
+    padding: 20px;
+  }
+  
+  // Mobile View: Stack Sections Vertically
+  @media (max-width: 768px) {
+    .profile-wrapper {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .event-card {
+      flex: 1 1 100%;
+      max-width: 100%;
+    }
+  }
+  

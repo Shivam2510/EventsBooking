@@ -1,0 +1,131 @@
+// Theme Colors
+$primary-bg: linear-gradient(135deg, #2c3e50, #34495e); // Background gradient
+$glass-bg: rgba(255, 255, 255, 0.1);
+$border-color: rgba(255, 255, 255, 0.2);
+$box-shadow-color: rgba(0, 0, 0, 0.2);
+$focus-border: #f39c12;
+$error-color: #ff6b6b;
+$btn-primary: linear-gradient(135deg, #f39c12, #e67e22);
+$btn-hover: linear-gradient(135deg, #e67e22, #d35400);
+
+// Common Mixins
+@mixin glassmorphism($blur: 8px) {
+  background: $glass-bg;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px $box-shadow-color;
+  backdrop-filter: blur($blur);
+  border: 1px solid $border-color;
+}
+
+@mixin button-style($bg, $hover-bg) {
+  width: 100%;
+  padding: 12px;
+  background: $bg;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 10px rgba(255, 165, 0, 0.3);
+
+  &:hover {
+    background: $hover-bg;
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(255, 165, 0, 0.5);
+  }
+
+  &:disabled {
+    background: gray;
+    cursor: not-allowed;
+  }
+}
+
+// Full-page background with gradient
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: $primary-bg;
+}
+
+// Styled login card
+.login-box {
+  width: 400px;
+  padding: 30px;
+  text-align: center;
+  @include glassmorphism(8px);
+  animation: fadeIn 0.5s ease-in-out;
+
+  h2 {
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .input-group {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 15px;
+
+    label {
+      font-weight: bold;
+      color: #fff;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 8px;
+      font-size: 14px;
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      transition: all 0.3s ease-in-out;
+      box-sizing: border-box;
+
+      &:focus {
+        border-color: $focus-border;
+        box-shadow: 0 0 10px rgba(243, 156, 18, 0.5);
+        outline: none;
+      }
+
+      &::placeholder {
+        color: rgba(255, 255, 255, 0.6);
+      }
+    }
+
+    .error {
+      color: $error-color;
+      font-size: 12px;
+      margin-top: 5px;
+    }
+  }
+
+  button {
+    @include button-style($btn-primary, $btn-hover);
+  }
+}
+
+// Fade-in animation for login card
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
